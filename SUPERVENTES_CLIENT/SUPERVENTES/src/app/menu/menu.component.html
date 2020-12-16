@@ -1,0 +1,30 @@
+<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+  <a class='navbar-brand' routerLink="/genres">SuperVentes</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class='navbar-nav mr-auto'>
+      <li class='nav-item active'>
+        <a class='nav-link' routerLink="/genres">Accueil<span class='sr-only'>(current)</span></a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' routerLink="/genres">Listes des genres</a>
+      </li>
+      <li *ngIf='(user|async)' class='nav-item'>
+        <a class='nav-link' routerLink="/films">Listes des films</a>
+      </li>
+    </ul>
+
+    <form *ngIf='!(user|async)' class='form-inline my-2 my-lg-0' >
+      <a class='btn btn-info mr-2' routerLink='/membres/inscription' role='button'>S'inscrire</a>
+      <a class='btn btn-light' routerLink='/membres/connexion' role='button'>Se connecter</a>
+    </form>
+    <form *ngIf='(user|async)' class='form-inline my-2 my-lg-0' >
+      <a class="btn btn-warning mr-2" routerLink="/panier">
+        <i class="bi bi-basket2-fill"></i>
+      </a>
+      <a class='btn btn-light' (click)='deconnexion()' role='button'>Se déconnecter ({{user|async}})</a>
+    </form>
+  </div>
+</nav>

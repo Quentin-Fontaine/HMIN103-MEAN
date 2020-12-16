@@ -1,0 +1,49 @@
+<div class="container mt-3 mb-3 border-bottom">
+  <div class="row">
+    <div class="col-sm">
+      <p class="font-weight-bold">Titre : </p>
+      <input class="form-control" type="search" [(ngModel)] = "titres"/>
+    </div>
+    <div class="col-sm">
+      <p class="font-weight-bold"> Genre : </p>
+      <input class="form-control" type="search" [(ngModel)] = "genres"/>
+    </div>
+    <div class="col-sm">
+      <p class="font-weight-bold"> Prix : </p>
+      <input class="form-control" type="search" [(ngModel)] = "prix"/><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <p class="font-weight-bold">Année : </p>
+      <input class="form-control" type="search" [(ngModel)] = "annees"/>
+    </div>
+    <div class="col-sm">
+      <p class="font-weight-bold"> Durée : </p>
+      <input class="form-control" type="search" [(ngModel)] = "durees"/>
+    </div>
+    <div class="col-sm">
+      <p class="font-weight-bold"> Description : </p>
+      <input class="form-control" type="search" [(ngModel)] = "descriptions"/><br/>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row row-cols-4">
+    <div class="col m-3" *ngFor="let film of films | filter:titres:'titre' | filter:genres:'genre' | filter:prix:'prix' | filter:annees:'année' | filter:durees:'durée' | filter:descriptions:'description'">
+      <div class="card shadow-sm p-3 mb-5 bg-white" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">{{film['titre']}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{film['genre']}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{film['année']}}</h6>
+          <p class="card-text overflow-auto">{{film['description']}}</p>
+          <div>
+            <button href="#" class="btn btn-primary card-link float-left">Add to cart</button>
+            <p href="#" class="card-link float-right">{{film['prix']}}€</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

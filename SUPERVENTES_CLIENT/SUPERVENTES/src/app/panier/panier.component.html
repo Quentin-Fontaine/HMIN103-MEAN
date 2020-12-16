@@ -1,0 +1,11 @@
+<p>PANIER</p>
+
+{{addToPanier(user|async,"test")}}
+
+<ul *ngFor="let film of getPanier(user|async)">
+  <li>
+    <p>
+      {{film['titre']}} ( {{film['quantity']}} )
+    </p>
+  </li>
+</ul>

@@ -1,0 +1,18 @@
+<div class="mt-5 w-50 mx-auto border border-5 rounded shadow">
+  <div class="m-3">
+    <p class="text-center font-weight-bolder">Connexion</p>
+    <form (ngSubmit)="onSubmit()" #inscriptionForm="ngForm">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Adresse mail :</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Votre adresse mail..." aria-describedby="emailHelp" required [(ngModel)]="utilisateur['email']" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Mot de passe :</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" required [(ngModel)]="utilisateur['password']" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary mx-auto">Se connecter</button>
+    </form>
+  </div>
+
+  <p> {{message}} </p>
+</div>
