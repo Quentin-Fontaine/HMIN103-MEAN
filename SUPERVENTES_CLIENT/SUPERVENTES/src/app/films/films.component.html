@@ -31,16 +31,16 @@
 
 <div class="container">
   <div class="row row-cols-4">
-    <div class="col m-3" *ngFor="let film of films | filter:titres:'titre' | filter:genres:'genre' | filter:prix:'prix' | filter:annees:'année' | filter:durees:'durée' | filter:descriptions:'description'">
+    <div class="col m-3" *ngFor="let film of films | filter:titres:'titre' | filter:genres:'genre' | filter:prix:'prix' | filter:annees:'annee' | filter:durees:'duree' | filter:descriptions:'description'">
       <div class="card shadow-sm p-3 mb-5 bg-white" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title font-weight-bold">{{film['titre']}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{film['genre']}}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">{{film['année']}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{film['annee']}} - ({{film['duree']}}min)</h6>
           <p class="card-text overflow-auto">{{film['description']}}</p>
           <div>
-            <button href="#" class="btn btn-primary card-link float-left">Add to cart</button>
-            <p href="#" class="card-link float-right">{{film['prix']}}€</p>
+            <button class="btn btn-primary card-link float-left">Add to cart</button>
+            <p class="card-link float-right">{{film['prix']}}€</p>
           </div>
         </div>
       </div>
